@@ -4,7 +4,7 @@ const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-let port = process.env.PORT || 3000;
+
 
 const productRoutes = require("./api/routes/products"); // this will fetch the product/js content
 const orderRoutes = require("./api/routes/orders");
@@ -56,7 +56,5 @@ app.use((error, req, res, next) => {
     },
   });
 });
-app.listen(port, () => {
-  console.log(`Listening on port http://localhost:${port}`);
-});
+
 module.exports = app;
