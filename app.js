@@ -9,11 +9,12 @@ require("dotenv").config();
 const productRoutes = require("./api/routes/products"); // this will fetch the product/js content
 const orderRoutes = require("./api/routes/orders");
 const userRoutes = require("./api/routes/user");
-console.log(process.env.MONGO_ATLAS_PW);
+console.log(process.env.MONGODB_URL);
 mongoose.connect(
-  "mongodb+srv://shivam:" +
+  /*"mongodb+srv://shivam:" +
     encodeURIComponent(process.env.MONGO_ATLAS_PW) +
-    "@clustershop.sibpm.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "@clustershop.sibpm.mongodb.net/<dbname>?retryWrites=true&w=majority"*/
+  process.env.MONGODB_URL,
   {
     //useMongoClient: true,
     useNewUrlParser: true,
