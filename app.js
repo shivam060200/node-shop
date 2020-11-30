@@ -4,14 +4,15 @@ const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
+require("dotenv").config();
 
 const productRoutes = require("./api/routes/products"); // this will fetch the product/js content
 const orderRoutes = require("./api/routes/orders");
 const userRoutes = require("./api/routes/user");
+console.log(process.env.MONGO_ATLAS_PW);
 mongoose.connect(
   "mongodb+srv://shivam:" +
-    process.env.MONGO_ATLAS_PW +
+    encodeURIComponent(process.env.MONGO_ATLAS_PW) +
     "@clustershop.sibpm.mongodb.net/<dbname>?retryWrites=true&w=majority",
   {
     //useMongoClient: true,
